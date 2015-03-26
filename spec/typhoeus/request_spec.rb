@@ -190,4 +190,17 @@ describe Typhoeus::Request do
       expect(request.encoded_body).to eq("a=1")
     end
   end
+
+  describe "#to_s" do
+    let(:request) {
+      Typhoeus::Request.new("www.example.com",:body => {:marko => 'polo'})
+    }    
+    it 'includes the url' do
+      expect(request.to_s).to include('www.example.com')
+    end
+    it 'includes the provided options' do
+      expect(request.to_s).to include('polo')
+    end
+  end
+
 end

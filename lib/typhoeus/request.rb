@@ -177,6 +177,12 @@ module Typhoeus
       Ethon::Easy::Form.new(nil, options[:body]).to_s
     end
 
+    # Return a string representation of the object
+    #
+    def to_s
+      "#{self.class}(url: #{url}, options: #{original_options})"
+    end
+
     private
 
     # Checks if two hashes are equal or not, discarding
